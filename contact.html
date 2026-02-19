@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONTACT | Emmanuel Abebresse</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="contact.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Leaflet for interactive map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="logo-section">
+                <img src="C:\Users\bebzy\Documents\Bebzy\Coding\files\IMG_0308.JPG" alt="Emmanuel Logo" class="logo-img">
+                <div class="logo-text">
+                    <h1><a href="index.html">Emmanuel Abebresse</a></h1>
+                    <p class="subtitle">Geomatic Engineer / GIS Analyst</p>
+                </div>
+            </div>
+            <nav class="nav">
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-list">
+                    <li><a href="index.html">ABOUT ME</a></li>
+                    <li><a href="resume.html">RESUME</a></li>
+                    <li><a href="projects.html">PROJECTS</a></li>
+                    <li><a href="contact.html" class="active">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <div class="hero-background">
+            <canvas id="mapCanvas"></canvas>
+            <div class="coordinate-grid"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content-wrapper">
+                <div class="location-badge">
+                    <svg class="pin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span>Portsmouth, England</span>
+                </div>
+                <h1 class="hero-title">
+                    Let's Map Your
+                    <span class="highlight">Next Project</span>
+                </h1>
+                <p class="hero-description">
+                    Whether you need spatial analysis, cartographic design, or surveying services, 
+                    I'm here to help bring your geospatial vision to life.
+                </p>
+                
+                <!-- Quick Contact Methods -->
+                <div class="quick-contact">
+                    <a href="tel:+447769026796" class="quick-contact-item">
+                        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        <div class="contact-info">
+                            <span class="label">Call</span>
+                            <span class="value">+44 776 902 6796</span>
+                        </div>
+                    </a>
+                    
+                    <a href="mailto:bebzy10@gmail.com" class="quick-contact-item">
+                        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <div class="contact-info">
+                            <span class="label">Email</span>
+                            <span class="value">bebzy10@gmail.com</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Contact Section -->
+    <section class="contact-main">
+        <div class="container">
+            <div class="contact-grid">
+                
+                <!-- Contact Form -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <h2>Send a Message</h2>
+                        <p>Fill out the form below and I'll get back to you within 24 hours</p>
+                    </div>
+                    
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">
+                                    Full Name
+                                    <span class="required">*</span>
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="name" 
+                                    name="name" 
+                                    placeholder="John Doe"
+                                    required
+                                >
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">
+                                    Email Address
+                                    <span class="required">*</span>
+                                </label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email" 
+                                    placeholder="john@example.com"
+                                    required
+                                >
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input 
+                                    type="tel" 
+                                    id="phone" 
+                                    name="phone" 
+                                    placeholder="+44 123 456 7890"
+                                >
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="company">Company/Organization</label>
+                                <input 
+                                    type="text" 
+                                    id="company" 
+                                    name="company" 
+                                    placeholder="Company Name"
+                                >
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">
+                                Service Interested In
+                                <span class="required">*</span>
+                            </label>
+                            <select id="service" name="service" required>
+                                <option value="">Select a service</option>
+                                <option value="gis-analysis">GIS Analysis</option>
+                                <option value="cartography">Cartographic Design</option>
+                                <option value="land-survey">Land Surveying</option>
+                                <option value="remote-sensing">Remote Sensing</option>
+                                <option value="web-mapping">Web Mapping Development</option>
+                                <option value="spatial-database">Spatial Database Management</option>
+                                <option value="consultation">General Consultation</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">
+                                Project Details
+                                <span class="required">*</span>
+                            </label>
+                            <textarea 
+                                id="message" 
+                                name="message" 
+                                rows="6"
+                                placeholder="Tell me about your project requirements, timeline, and any specific goals you have in mind..."
+                                required
+                            ></textarea>
+                            <div class="character-count">
+                                <span id="charCount">0</span> / 1000 characters
+                            </div>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="newsletter" id="newsletter">
+                                <span class="checkmark"></span>
+                                <span class="checkbox-text">Subscribe to newsletter for GIS tips and project updates</span>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                </svg>
+                            </span>
+                            <span class="btn-loading">
+                                <svg class="spinner" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle>
+                                </svg>
+                            </span>
+                        </button>
+                        
+                        <div class="form-message" id="formMessage"></div>
+                    </form>
+                </div>
+                
+                <!-- Interactive Map & Info -->
+                <div class="info-section">
+                    <!-- Interactive Map -->
+                    <div class="map-container">
+                        <div id="contactMap" class="interactive-map"></div>
+                        <div class="map-overlay">
+                            <div class="coordinates">
+                                <svg class="coord-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                                </svg>
+                                <div class="coord-text">
+                                    <span class="coord-label">Location</span>
+                                    <span class="coord-value" id="mapCoords">51.4154° N, -0.7493° W</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Cards -->
+                    <div class="contact-cards">
+                        <div class="contact-card">
+                            <div class="card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                            </div>
+                            <div class="card-content">
+                                <h3>Office Location</h3>
+                                <p>Bracknell, England, United Kingdom</p>
+                                <a href="https://maps.google.com/?q=Bracknell+England" target="_blank" class="card-link">
+                                    View on Google Maps →
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <div class="card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                            </div>
+                            <div class="card-content">
+                                <h3>Working Hours</h3>
+                                <p>Monday - Friday: 9:00 AM - 6:00 PM GMT</p>
+                                <p>Weekend: By Appointment</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <div class="card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </div>
+                            <div class="card-content">
+                                <h3>Social Media</h3>
+                                <div class="social-links-card">
+                                    <a href="https://github.com/xyclops92" target="_blank" aria-label="GitHub">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                        </svg>
+                                    </a>
+                                    <a href="https://twitter.com/MapsbyBebzy" target="_blank" aria-label="Twitter">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                                        </svg>
+                                    </a>
+                                    <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                                            <circle cx="4" cy="4" r="2"></circle>
+                                        </svg>
+                                    </a>
+                                    <a href="https://instagram.com/mapsbybebzy" target="_blank" aria-label="Instagram">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Response Time Badge -->
+                    <div class="response-badge">
+                        <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                        </svg>
+                        <div class="badge-text">
+                            <span class="badge-title">Average Response Time</span>
+                            <span class="badge-value">< 24 Hours</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header centered">
+                <h2>Frequently Asked Questions</h2>
+                <p>Quick answers to common questions about my services</p>
+            </div>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What types of GIS services do you offer?</h3>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>I offer comprehensive geospatial services including spatial analysis, cartographic design, land surveying, remote sensing, web mapping development, and spatial database management. Each project is tailored to meet specific client needs.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What is your typical project timeline?</h3>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Project timelines vary based on scope and complexity. Small mapping projects may take 1-2 weeks, while comprehensive spatial analysis or surveying projects can range from 1-6 months. I'll provide a detailed timeline during our initial consultation.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you work with international clients?</h3>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! While based in Bracknell, England, I work with clients globally. Many GIS and cartography projects can be completed remotely with proper data sharing and communication protocols.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What software and tools do you use?</h3>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>I'm proficient in industry-standard tools including ArcGIS (Pro, Desktop, Online), QGIS, AutoCAD Civil 3D, Python (ArcPy, GeoPandas), PostgreSQL/PostGIS, and various remote sensing platforms like ERDAS Imagine and ENVI.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Call</h3>
+                    <p>+447769026796</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Email</h3>
+                    <p><a href="mailto:bebzy10@gmail.com">bebzy10@gmail.com</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow</h3>
+                    <div class="footer-social">
+                        <a href="https://github.com/xyclops92" target="_blank" aria-label="GitHub">
+                            <img src="assets/icons/github.png" alt="GitHub">
+                        </a>
+                        <a href="https://www.twitter.com/MapsbyBebzy" target="_blank" aria-label="Twitter">
+                            <img src="assets/icons/twitter.png" alt="Twitter">
+                        </a>
+                        <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn">
+                            <img src="assets/icons/linkedin.png" alt="LinkedIn">
+                        </a>
+                        <a href="https://www.instagram.com/mapsbybebzy" target="_blank" aria-label="Instagram">
+                            <img src="assets/icons/instagram.png" alt="Instagram">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 by Emmanuel Abebresse.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="contact.js"></script>
+</body>
+</html>
